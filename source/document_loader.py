@@ -68,6 +68,7 @@ class TableLoader:
                 if len(employee_info) != len(self.sorting_categories):
                     print(f"Length mismatch: expected {len(categories)} categories but received {len(employee_info)} categories.")
                 employee_dict = dict(zip(self.sorting_categories, employee_info))
+                employee_dict["access_role"] = self.access_role
                 documents.append(employee_dict)
         return documents
 

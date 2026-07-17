@@ -5,6 +5,8 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 from typing import List
 from langchain_core.documents import Document
+import json
+import os
 
 
 class VectorStore:
@@ -47,4 +49,49 @@ class RecordStore:
     '''
     Storage database for dictionary types containing metdata about record-type documents
     '''
-    def __init__(self, )
+    def __init__(self, file_path: str = "./record_database", key_field: str = "employee_id", records: dict = {}):
+        self.file_path = file_path
+        self.key_field = key_field
+        self.records = records
+        #self.load()
+    
+    def save(self):
+        with open(self.file_path, "w") as f: #"w" signifies write, so we are opening with the intention to write
+            json.dump(self.records, f, indent = 2) #serializes records into json format, then dumps into file f
+    
+    def load(self):
+        if os.path.exists(self.file_path): #checking wher file has been created yet
+            with open(self.file_path, "r") as f: #"r" signifies read so we open just to get information not change it
+                self.records = json.load(f)
+
+    def add_records(self, record_list):
+        for r in record_list: #r is a dictionary of one employee's info
+            if self.key_field not in r:
+                raise KeyError("Key field not found as category in record")
+            key = r[self.key_field] #set key in record to be corresponding key_field, e.g. EMP-1001
+            self.records[key] = r #set value of key in record to be indi employee dictionary r
+        self.save()
+
+    def get_record(self, key: str) -> dict:
+        '''
+        Returns a dictionary of all info for the relevant key, ex: given "EMP-1001", returns a dictionary of info for EMP-1001.
+        If EMP-1001 does not exist as a key (does not match key_field, or is simply not in the database), errors.
+        '''
+        if key not in self.records:
+            raise KeyError(f"{key} not found in records.")
+        else:
+            return self.records.get(key)
+
+    def get_record_by_field(self, field: str, specific_value: str) -> dict:
+        '''
+        Returns a dictionary of all info for field differing from default key_field, ex: given "name" and "John Smith", 
+        returns a dictionary of info for John Smith if John Smith exists as a value.
+        '''
+        for record in self.records:
+            record_dict = self.records[record]
+            if str(record_dict["field", ""]).lower() == str(specific_value).lower(): #e.g., if record_dict["name"] == "John Smith"
+                return record_dict
+        return None #if not found, return None
+    
+
+
