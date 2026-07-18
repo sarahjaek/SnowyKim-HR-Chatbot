@@ -13,13 +13,10 @@ import re
 
 class PDFLoader:
     # loads standard pdf text using fitz, splits into documents based on page number
-    def __init__(self, filepath: str, doc_type: str = "generic", access_role: str = "employee", 
-             department: str = "general", location: str = "universal") -> List[Document]:
+    def __init__(self, filepath: str, doc_type: str = "generic"):
         self.filepath = Path(filepath)
         self.doc_type = doc_type
-        self.access_role = access_role
-        self.department = department
-        self.location = location
+
 
         if not self.filepath.exists():
             raise FileNotFoundError("File does not exist")
@@ -33,9 +30,6 @@ class PDFLoader:
             metadata = {
                 "page_number": page_num + 1,
                 "doc_type": self.doc_type,
-                "access_role": self.access_role,
-                "department": self.department,
-                "location": self.location
             }
             content = text
             documents.append(Document(page_content = content, metadata = metadata))
@@ -43,10 +37,9 @@ class PDFLoader:
 
 class TableLoader:
     #loads table pdf text like employee, compensation tables
-    def __init__(self, filepath: str, doc_type: str = "generic", access_role: str = "employee", sorting_categories: list = None):
+    def __init__(self, filepath: str, doc_type: str = "generic", sorting_categories: list = None):
         self.filepath = Path(filepath)
         self.doc_type = doc_type
-        self.access_role = access_role
         self.sorting_categories = sorting_categories
         if not self.filepath.exists():
             raise FileNotFoundError("File does not exist")
