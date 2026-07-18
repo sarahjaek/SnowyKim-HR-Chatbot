@@ -1,4 +1,4 @@
-Enterprise HR Knowledge Assistant (Work in Progress)
+##Enterprise HR Knowledge Assistant (Work in Progress):
 Overview
 An LLM-powered enterprise HR knowledge assistant that uses retrieval-augmented generation (RAG) to answer employee questions over internal HR documentation while enforcing role-based access controls.
 
