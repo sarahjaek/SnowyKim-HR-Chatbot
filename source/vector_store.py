@@ -47,13 +47,13 @@ class VectorStore:
 
 class RecordStore:
     '''
-    Storage database for dictionary types containing metdata about record-type documents
+    Storage database for dictionary types containing metdata about record-type documents, writes documents to json file
     '''
-    def __init__(self, file_path: str = "./record_database", key_field: str = "employee_id", records: dict = {}):
+    def __init__(self, file_path: str = "./record_database.json", key_field: str = "employee_id", records: dict = {}):
         self.file_path = file_path
         self.key_field = key_field
         self.records = records
-        #self.load()
+        self.load()
     
     def save(self):
         with open(self.file_path, "w") as f: #"w" signifies write, so we are opening with the intention to write
@@ -64,7 +64,7 @@ class RecordStore:
             with open(self.file_path, "r") as f: #"r" signifies read so we open just to get information not change it
                 self.records = json.load(f)
 
-    def add_records(self, record_list):
+    def add_records(self, record_list: List[dict]):
         for r in record_list: #r is a dictionary of one employee's info
             if self.key_field not in r:
                 raise KeyError("Key field not found as category in record")

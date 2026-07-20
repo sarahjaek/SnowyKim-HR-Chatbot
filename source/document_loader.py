@@ -36,7 +36,7 @@ class PDFLoader:
         return documents
 
 class TableLoader:
-    #loads table pdf text like employee, compensation tables
+    #loads table pdf text like employee, compensation tables into documents for each employee (each line)
     def __init__(self, filepath: str, doc_type: str = "generic", sorting_categories: list = None):
         self.filepath = Path(filepath)
         self.doc_type = doc_type
