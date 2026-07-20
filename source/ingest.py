@@ -86,12 +86,12 @@ cal_access = {
          "executive": "none"}
 }
 
-ny_access = cal_access #new york access is the same as california access, except for the fields below.
+ny_access = cal_access # new york access is the same as california access, except for the fields below.
 ny_access["onboarding-policy"]["executive"] = "none"
 ny_access["recruitment-policy"]["executive"] = "none"
 ny_access["workplace-investigation"]["executive"] = "all"
 
-def load_policy_documents() -> List[Document]:
+def load_policy_documents() -> List[Document]: # load only the policy documents 
     docs = []
     docs += PDFLoader(filepath = DATA_DIR/"california-hr-policies.pdf", 
                        doc_type = "california-hr-policies").create_documents()
@@ -109,8 +109,14 @@ def load_policy_documents() -> List[Document]:
                        doc_type = "workplace-investigation").create_documents()
     return docs
 
-def load_table_documents() -> List[dict]:
+def load_table_documents() -> List[dict]: # load only the table information
     docs = []
+    docs += TableLoader(filepath = DATA_DIR/"employee-data.pdf",
+                        doc_type = "employee-data").create_documents()
+    docs += TableLoader(filepath = DATA_DIR/"compensation-records.pdf",
+                        doc_type = "compensation-records").create_documents()
+    return docs
+
     
     
 
