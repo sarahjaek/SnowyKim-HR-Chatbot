@@ -75,4 +75,22 @@ ny_access["onboarding-policy"]["executive"] = "none"
 ny_access["recruitment-policy"]["executive"] = "none"
 ny_access["workplace-investigation"]["executive"] = "all"
 
+class Retriever:
 
+    def __init__(self, router_llm = "gpt-5.4-nano", answer_llm = "gpt-5.6-luna", k = 4):
+        
+        
+    
+    def route_query(self, query) -> str:
+        #routes query into type: policy, employee info, or compensation using llm call
+
+    def target_employee(self, query, current_user):
+        #finds employee the question is asking about (if classified into employee or compensation info), using llm call
+
+    def is_allowed(self, doc_type, current_user) -> bool:
+        
+    def answer_policy:
+    
+    def answer_employee:
+    
+    def answer_compensation:
