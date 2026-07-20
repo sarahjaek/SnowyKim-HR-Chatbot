@@ -1,6 +1,8 @@
-#retrieves documents and generates
-#checks for access
-#checks for record info vs document info (compensation, employee data vs policy)
+#retrieves documents from vector and record stores at initialization 
+#mock current user
+#checks for access based on document type and current user access
+
+from vector_store import VectorStore, RecordStore
 
 cal_access = {
     "compensation-records": 
@@ -72,3 +74,5 @@ ny_access = cal_access # new york access is the same as california access, excep
 ny_access["onboarding-policy"]["executive"] = "none"
 ny_access["recruitment-policy"]["executive"] = "none"
 ny_access["workplace-investigation"]["executive"] = "all"
+
+

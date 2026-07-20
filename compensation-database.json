@@ -1,0 +1,202 @@
+{
+  "EMP-1001": {
+    "employee_id": "EMP-1001",
+    "salary_band_id": "SB-ENG-L2-SF",
+    "base_salary": "128000",
+    "bonus_target_pct": "10",
+    "equity_eligible": "true",
+    "employment_type": "full_time",
+    "pay_frequency": "annual",
+    "effective_date": "2026-01-01"
+  },
+  "EMP-1002": {
+    "employee_id": "EMP-1002",
+    "salary_band_id": "SB-ENG-L3-SF",
+    "base_salary": "156000",
+    "bonus_target_pct": "12",
+    "equity_eligible": "true",
+    "employment_type": "full_time",
+    "pay_frequency": "annual",
+    "effective_date": "2026-01-01"
+  },
+  "EMP-1003": {
+    "employee_id": "EMP-1003",
+    "salary_band_id": "SB-ENG-M1-SF",
+    "base_salary": "185000",
+    "bonus_target_pct": "18",
+    "equity_eligible": "true",
+    "employment_type": "full_time",
+    "pay_frequency": "annual",
+    "effective_date": "2026-01-01"
+  },
+  "EMP-1004": {
+    "employee_id": "EMP-1004",
+    "salary_band_id": "SB-DATA-L1-NY",
+    "base_salary": "94000",
+    "bonus_target_pct": "5",
+    "equity_eligible": "false",
+    "employment_type": "full_time",
+    "pay_frequency": "annual",
+    "effective_date": "2026-01-01"
+  },
+  "EMP-1005": {
+    "employee_id": "EMP-1005",
+    "salary_band_id": "SB-DATA-L3-SF",
+    "base_salary": "168000",
+    "bonus_target_pct": "12",
+    "equity_eligible": "true",
+    "employment_type": "full_time",
+    "pay_frequency": "annual",
+    "effective_date": "2026-01-01"
+  },
+  "EMP-1006": {
+    "employee_id": "EMP-1006",
+    "salary_band_id": "SB-DATA-D1-SF",
+    "base_salary": "214000",
+    "bonus_target_pct": "22",
+    "equity_eligible": "true",
+    "employment_type": "full_time",
+    "pay_frequency": "annual",
+    "effective_date": "2026-01-01"
+  },
+  "EMP-1007": {
+    "employee_id": "EMP-1007",
+    "salary_band_id": "SB-PROD-L2-NY",
+    "base_salary": "132000",
+    "bonus_target_pct": "10",
+    "equity_eligible": "true",
+    "employment_type": "full_time",
+    "pay_frequency": "annual",
+    "effective_date": "2026-01-01"
+  },
+  "EMP-1008": {
+    "employee_id": "EMP-1008",
+    "salary_band_id": "SB-PROD-D1-SF",
+    "base_salary": "221000",
+    "bonus_target_pct": "22",
+    "equity_eligible": "true",
+    "employment_type": "full_time",
+    "pay_frequency": "annual",
+    "effective_date": "2026-01-01"
+  },
+  "EMP-1009": {
+    "employee_id": "EMP-1009",
+    "salary_band_id": "SB-MKT-L1-NY",
+    "base_salary": "78000",
+    "bonus_target_pct": "5",
+    "equity_eligible": "false",
+    "employment_type": "full_time",
+    "pay_frequency": "annual",
+    "effective_date": "2026-01-01"
+  },
+  "EMP-1010": {
+    "employee_id": "EMP-1010",
+    "salary_band_id": "SB-MKT-M1-NY",
+    "base_salary": "136000",
+    "bonus_target_pct": "15",
+    "equity_eligible": "true",
+    "employment_type": "full_time",
+    "pay_frequency": "annual",
+    "effective_date": "2026-01-01"
+  },
+  "EMP-1011": {
+    "employee_id": "EMP-1011",
+    "salary_band_id": "SB-SALES-L2-NY",
+    "base_salary": "92000",
+    "bonus_target_pct": "35",
+    "equity_eligible": "false",
+    "employment_type": "full_time",
+    "pay_frequency": "annual",
+    "effective_date": "2026-01-01"
+  },
+  "EMP-1012": {
+    "employee_id": "EMP-1012",
+    "salary_band_id": "SB-SALES-M1-SF",
+    "base_salary": "148000",
+    "bonus_target_pct": "40",
+    "equity_eligible": "true",
+    "employment_type": "full_time",
+    "pay_frequency": "annual",
+    "effective_date": "2026-01-01"
+  },
+  "EMP-1013": {
+    "employee_id": "EMP-1013",
+    "salary_band_id": "SB-FIN-L1-SF",
+    "base_salary": "97000",
+    "bonus_target_pct": "8",
+    "equity_eligible": "false",
+    "employment_type": "full_time",
+    "pay_frequency": "annual",
+    "effective_date": "2026-01-01"
+  },
+  "EMP-1014": {
+    "employee_id": "EMP-1014",
+    "salary_band_id": "SB-FIN-D1-NY",
+    "base_salary": "192000",
+    "bonus_target_pct": "20",
+    "equity_eligible": "true",
+    "employment_type": "full_time",
+    "pay_frequency": "annual",
+    "effective_date": "2026-01-01"
+  },
+  "EMP-1015": {
+    "employee_id": "EMP-1015",
+    "salary_band_id": "SB-HR-L1-NY",
+    "base_salary": "72000",
+    "bonus_target_pct": "5",
+    "equity_eligible": "false",
+    "employment_type": "full_time",
+    "pay_frequency": "annual",
+    "effective_date": "2026-01-01"
+  },
+  "EMP-1016": {
+    "employee_id": "EMP-1016",
+    "salary_band_id": "SB-HR-L3-SF",
+    "base_salary": "142000",
+    "bonus_target_pct": "12",
+    "equity_eligible": "true",
+    "employment_type": "full_time",
+    "pay_frequency": "annual",
+    "effective_date": "2026-01-01"
+  },
+  "EMP-1017": {
+    "employee_id": "EMP-1017",
+    "salary_band_id": "SB-HRIS-L2-SF",
+    "base_salary": "121000",
+    "bonus_target_pct": "10",
+    "equity_eligible": "true",
+    "employment_type": "full_time",
+    "pay_frequency": "annual",
+    "effective_date": "2026-01-01"
+  },
+  "EMP-1018": {
+    "employee_id": "EMP-1018",
+    "salary_band_id": "SB-HR-D1-NY",
+    "base_salary": "205000",
+    "bonus_target_pct": "22",
+    "equity_eligible": "true",
+    "employment_type": "full_time",
+    "pay_frequency": "annual",
+    "effective_date": "2026-01-01"
+  },
+  "EMP-1019": {
+    "employee_id": "EMP-1019",
+    "salary_band_id": "SB-IT-L1-NY",
+    "base_salary": "88000",
+    "bonus_target_pct": "5",
+    "equity_eligible": "false",
+    "employment_type": "full_time",
+    "pay_frequency": "annual",
+    "effective_date": "2026-01-01"
+  },
+  "EMP-1020": {
+    "employee_id": "EMP-1020",
+    "salary_band_id": "SB-OPS-EXEC-SF",
+    "base_salary": "285000",
+    "bonus_target_pct": "35",
+    "equity_eligible": "true",
+    "employment_type": "full_time",
+    "pay_frequency": "annual",
+    "effective_date": "2026-01-01 1 1"
+  }
+}

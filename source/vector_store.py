@@ -7,6 +7,7 @@ from typing import List
 from langchain_core.documents import Document
 import json
 import os
+import shutil
 
 
 class VectorStore:
@@ -23,7 +24,7 @@ class VectorStore:
         self.chunk_size = chunk_size
         self.chunk_overlap = chunk_overlap
 
-        self.embeddings = OpenAIEmbeddings(embedding_model, dimensions = 1536) #embedding tool
+        self.embeddings = OpenAIEmbeddings(model = embedding_model, dimensions = 1536) #embedding tool
         self.db = None #gets created after adding documents
     
     def add_documents(self, documents: List[Document]):

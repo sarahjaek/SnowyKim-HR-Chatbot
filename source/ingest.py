@@ -3,6 +3,8 @@ import os
 from pathlib import Path
 from typing import List
 from langchain_core.documents import Document
+from dotenv import load_dotenv
+result = load_dotenv()
 
 from document_loader import PDFLoader
 from document_loader import TableLoader

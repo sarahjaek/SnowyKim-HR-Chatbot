@@ -1,0 +1,202 @@
+{
+  "EMP-1001": {
+    "employee_id": "EMP-1001",
+    "first_name": "Maya",
+    "last_name": "Patel",
+    "email": "maya.patel@snowykim-demo.com",
+    "job_title": "Software Engineer",
+    "access_role": "employee",
+    "department": "Engineering",
+    "location": "San Francisco"
+  },
+  "EMP-1002": {
+    "employee_id": "EMP-1002",
+    "first_name": "Daniel",
+    "last_name": "Kim",
+    "email": "daniel.kim@snowykim-demo.com",
+    "job_title": "Senior Software Engineer",
+    "access_role": "employee",
+    "department": "Engineering",
+    "location": "San Francisco"
+  },
+  "EMP-1003": {
+    "employee_id": "EMP-1003",
+    "first_name": "Elena",
+    "last_name": "Rodriguez",
+    "email": "elena.rodriguez@snowykim-demo.com",
+    "job_title": "Engineering Manager",
+    "access_role": "manager",
+    "department": "Engineering",
+    "location": "San Francisco"
+  },
+  "EMP-1004": {
+    "employee_id": "EMP-1004",
+    "first_name": "Marcus",
+    "last_name": "Johnson",
+    "email": "marcus.johnson@snowykim-demo.com",
+    "job_title": "Data Analyst",
+    "access_role": "employee",
+    "department": "Data and Analytics",
+    "location": "New York City"
+  },
+  "EMP-1005": {
+    "employee_id": "EMP-1005",
+    "first_name": "Priya",
+    "last_name": "Shah",
+    "email": "priya.shah@snowykim-demo.com",
+    "job_title": "Senior Data Scientist",
+    "access_role": "employee",
+    "department": "Data and Analytics",
+    "location": "San Francisco"
+  },
+  "EMP-1006": {
+    "employee_id": "EMP-1006",
+    "first_name": "Noah",
+    "last_name": "Williams",
+    "email": "noah.williams@snowykim-demo.com",
+    "job_title": "Director of Data and Analytics",
+    "access_role": "manager",
+    "department": "Data and Analytics",
+    "location": "San Francisco"
+  },
+  "EMP-1007": {
+    "employee_id": "EMP-1007",
+    "first_name": "Sofia",
+    "last_name": "Martinez",
+    "email": "sofia.martinez@snowykim-demo.com",
+    "job_title": "Product Manager",
+    "access_role": "employee",
+    "department": "Product",
+    "location": "New York City"
+  },
+  "EMP-1008": {
+    "employee_id": "EMP-1008",
+    "first_name": "Ethan",
+    "last_name": "Nguyen",
+    "email": "ethan.nguyen@snowykim-demo.com",
+    "job_title": "Director of Product",
+    "access_role": "manager",
+    "department": "Product",
+    "location": "San Francisco"
+  },
+  "EMP-1009": {
+    "employee_id": "EMP-1009",
+    "first_name": "Aisha",
+    "last_name": "Thompson",
+    "email": "aisha.thompson@snowykim-demo.com",
+    "job_title": "Marketing Specialist",
+    "access_role": "employee",
+    "department": "Marketing",
+    "location": "New York City"
+  },
+  "EMP-1010": {
+    "employee_id": "EMP-1010",
+    "first_name": "Lucas",
+    "last_name": "Chen",
+    "email": "lucas.chen@snowykim-demo.com",
+    "job_title": "Marketing Manager",
+    "access_role": "manager",
+    "department": "Marketing",
+    "location": "New York City"
+  },
+  "EMP-1011": {
+    "employee_id": "EMP-1011",
+    "first_name": "Olivia",
+    "last_name": "Brooks",
+    "email": "olivia.brooks@snowykim-demo.com",
+    "job_title": "Account Executive",
+    "access_role": "employee",
+    "department": "Sales",
+    "location": "New York City"
+  },
+  "EMP-1012": {
+    "employee_id": "EMP-1012",
+    "first_name": "James",
+    "last_name": "Park",
+    "email": "james.park@snowykim-demo.com",
+    "job_title": "Regional Sales Manager",
+    "access_role": "manager",
+    "department": "Sales",
+    "location": "San Francisco"
+  },
+  "EMP-1013": {
+    "employee_id": "EMP-1013",
+    "first_name": "Amara",
+    "last_name": "Davis",
+    "email": "amara.davis@snowykim-demo.com",
+    "job_title": "Financial Analyst",
+    "access_role": "employee",
+    "department": "Finance",
+    "location": "San Francisco"
+  },
+  "EMP-1014": {
+    "employee_id": "EMP-1014",
+    "first_name": "Benjamin",
+    "last_name": "Lee",
+    "email": "benjamin.lee@snowykim-demo.com",
+    "job_title": "Finance Director",
+    "access_role": "manager",
+    "department": "Finance",
+    "location": "New York City"
+  },
+  "EMP-1015": {
+    "employee_id": "EMP-1015",
+    "first_name": "Natalie",
+    "last_name": "Gomez",
+    "email": "natalie.gomez@snowykim-demo.com",
+    "job_title": "HR Coordinator",
+    "access_role": "hr_staff",
+    "department": "Human Resources",
+    "location": "New York City"
+  },
+  "EMP-1016": {
+    "employee_id": "EMP-1016",
+    "first_name": "Omar",
+    "last_name": "Hassan",
+    "email": "omar.hassan@snowykim-demo.com",
+    "job_title": "HR Business Partner",
+    "access_role": "hr_staff",
+    "department": "Human Resources",
+    "location": "San Francisco"
+  },
+  "EMP-1017": {
+    "employee_id": "EMP-1017",
+    "first_name": "Grace",
+    "last_name": "Liu",
+    "email": "grace.liu@snowykim-demo.com",
+    "job_title": "HRIS Analyst",
+    "access_role": "hr_staff",
+    "department": "Human Resources",
+    "location": "San Francisco"
+  },
+  "EMP-1018": {
+    "employee_id": "EMP-1018",
+    "first_name": "Rachel",
+    "last_name": "Morgan",
+    "email": "rachel.morgan@snowykim-demo.com",
+    "job_title": "Director of Human Resources",
+    "access_role": "hr_admin",
+    "department": "Human Resources",
+    "location": "New York City"
+  },
+  "EMP-1019": {
+    "employee_id": "EMP-1019",
+    "first_name": "Andre",
+    "last_name": "Wilson",
+    "email": "andre.wilson@snowykim-demo.com",
+    "job_title": "IT Support Specialist",
+    "access_role": "it_admin",
+    "department": "Information Technology",
+    "location": "New York City"
+  },
+  "EMP-1020": {
+    "employee_id": "EMP-1020",
+    "first_name": "Claire",
+    "last_name": "Anderson",
+    "email": "claire.anderson@snowykim-demo.com",
+    "job_title": "Chief Operating Officer",
+    "access_role": "executive",
+    "department": "Operations",
+    "location": "San Francisco 1"
+  }
+}

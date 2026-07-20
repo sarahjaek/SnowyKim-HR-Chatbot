@@ -6,7 +6,6 @@ from pathlib import Path
 from typing import List
 import fitz
 from langchain_core.documents import Document
-import pdfplumber
 import re
 
 
@@ -22,6 +21,7 @@ class PDFLoader:
             raise FileNotFoundError("File does not exist")
     
     def create_documents(self) -> List[Document]:
+        print(self.filepath)
         doc = fitz.open(self.filepath)
         documents = []
         for page_num, page in enumerate(doc):
@@ -48,6 +48,7 @@ class TableLoader:
         doc = fitz.open(self.filepath)
         documents = []
         first_page = doc[0].get_text()
+        print(repr(first_page.splitlines()[:3]))
         first_line_stripped = first_page.splitlines()[0].strip()
         categories = [c.strip() for c in first_line_stripped.split(",")]
         self.sorting_categories = categories
@@ -61,7 +62,6 @@ class TableLoader:
                 if len(employee_info) != len(self.sorting_categories):
                     print(f"Length mismatch: expected {len(categories)} categories but received {len(employee_info)} categories.")
                 employee_dict = dict(zip(self.sorting_categories, employee_info))
-                employee_dict["access_role"] = self.access_role
                 documents.append(employee_dict)
         return documents
 
