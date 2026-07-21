@@ -141,7 +141,33 @@ class Retriever:
         return None
 
 
-    def is_allowed(self, doc_type, current_user) -> bool:
+    def is_allowed(self, doc_type: str, current_user: dict, target_id: str) -> bool:
+        """
+        Assuming current_user is valid dictionary in database, return whether the currrent user is allowed to access the specific doc.
+        
+        If employee_location invalid, returns None. Otherwise, checks access against relevant location access matrix.
+        """
+        employee_location = current_user["location"]
+        employee_access = current_user["access_role"]
+        
+        if employee_location == "San Francisco":
+            access = cal_access[doc_type][employee_access]
+        elif employee_location == "New York":
+            access = ny_access[doc_type][employee_access]
+        else:
+            print ("Location invalid.")
+            return None
+        if access == "all":
+            return True
+        if access == "none":
+            return False
+        if access == "own_only":
+            if target_id == current_user["employee_id"]:
+                return True
+            else:
+                return False
+
+
         
     def answer_policy:
     
