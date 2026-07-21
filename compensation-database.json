@@ -197,6 +197,46 @@
     "equity_eligible": "true",
     "employment_type": "full_time",
     "pay_frequency": "annual",
-    "effective_date": "2026-01-01 1 1"
+    "effective_date": "2026-01-01"
+  },
+  "EMP-1021": {
+    "employee_id": "EMP-1021",
+    "salary_band_id": "SB-OPS-EXEC-L2-SF",
+    "base_salary": "800000",
+    "bonus_target_pct": "50",
+    "equity_eligible": "true",
+    "employment_type": "full_time",
+    "pay_frequency": "annual",
+    "effective_date": "2026-01-01"
+  },
+  "EMP-1022": {
+    "employee_id": "EMP-1022",
+    "salary_band_id": "SB-OPS-CEO-SF",
+    "base_salary": "2000000",
+    "bonus_target_pct": "100",
+    "equity_eligible": "true",
+    "employment_type": "full_time",
+    "pay_frequency": "annual",
+    "effective_date": "2026-01-01"
+  },
+  "EMP-1023": {
+    "employee_id": "EMP-1023",
+    "salary_band_id": "SB-OPS-EXEC-L3-SF",
+    "base_salary": "900000",
+    "bonus_target_pct": "50",
+    "equity_eligible": "true",
+    "employment_type": "full_time",
+    "pay_frequency": "annual",
+    "effective_date": "2026-01-01"
+  },
+  "EMP-1024": {
+    "employee_id": "EMP-1024",
+    "salary_band_id": "SB-HRIS-L3-SF",
+    "base_salary": "300000",
+    "bonus_target_pct": "30",
+    "equity_eligible": "true",
+    "employment_type": "full_time",
+    "pay_frequency": "annual",
+    "effective_date": "2026-01-01"
   }
 }

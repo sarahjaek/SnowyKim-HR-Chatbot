@@ -1,6 +1,6 @@
 from retriever import Retriever
 
-sample_email = "daniel.kim@snowykim-demo.com"
+sample_email = "fattan@snowykim-demo.com"
 
 r = Retriever()
 
@@ -23,3 +23,4 @@ print(r.answer_question("What have we done in the past when employees have had a
 
 # Test full flow
 print(r.answer_question("What is my salary?", curr_user))
+print(r.answer_question("Tell me one thing about executive strategy", curr_user))

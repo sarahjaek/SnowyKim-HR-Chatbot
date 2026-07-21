@@ -32,6 +32,20 @@ cal_access = {
          "hr_admin": "all",
          "it_admin": "all",
          "executive": "all"},
+    "employee-handbook":
+        {"employee": "all",
+         "manager": "all",
+         "hr_staff": "all",
+         "hr_admin": "all",
+         "it_admin": "all",
+         "executive": "all"},
+    "executive-strategy":
+        {"employee": "none",
+         "manager": "none",
+         "hr_staff": "none",
+         "hr_admin": "none",
+         "it_admin": "none",
+         "executive": "all"},
     "california-hr-policies":
         {"employee": "all",
          "manager": "all",

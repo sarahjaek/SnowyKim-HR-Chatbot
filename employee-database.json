@@ -198,5 +198,45 @@
     "access_role": "executive",
     "department": "Operations",
     "location": "San Francisco"
+  },
+  "EMP-1021": {
+    "employee_id": "EMP-1021",
+    "first_name": "Tristan",
+    "last_name": "Tan",
+    "email": "fattan@snowykim-demo.com",
+    "job_title": "Vice President of Operations",
+    "access_role": "executive",
+    "department": "Operations",
+    "location": "San Francisco"
+  },
+  "EMP-1022": {
+    "employee_id": "EMP-1022",
+    "first_name": "Snowy",
+    "last_name": "Kim",
+    "email": "snowy.queen@snowykim-demo.com",
+    "job_title": "CEO",
+    "access_role": "executive",
+    "department": "Operations",
+    "location": "San Francisco"
+  },
+  "EMP-1023": {
+    "employee_id": "EMP-1023",
+    "first_name": "Sarah",
+    "last_name": "Kim",
+    "email": "ilovemeowth@snowykim-demo.com",
+    "job_title": "President",
+    "access_role": "executive",
+    "department": "Data and Analytics",
+    "location": "San Francisco"
+  },
+  "EMP-1024": {
+    "employee_id": "EMP-1024",
+    "first_name": "Moon",
+    "last_name": "Kim",
+    "email": "mokim@snowykim-demo.com",
+    "job_title": "Head of HR",
+    "access_role": "hr_admin",
+    "department": "Human Resources",
+    "location": "San"
   }
 }
