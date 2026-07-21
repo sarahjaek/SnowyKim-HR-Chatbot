@@ -217,7 +217,7 @@ class Retriever:
         print(context)
         return self.generate_record_answer(query, context)
 
-    def generate_policy_answer(self, query = str, context = str) -> str:
+    def generate_policy_answer(self, query: str, context: str) -> str:
         """
         Generates llm answer about policy based on query and context.
         """
@@ -228,17 +228,20 @@ class Retriever:
         Please contact a member of our HR team, or email hr@snowykim-demo.com with your inquiry."
 
         Do NOT direct the user towards a decision that cannot be explicitly answered with the given context. 
+        Context = {context}
         Question: {query}
         Answer:"""
         response = self.answer_llm.invoke(prompt)
         return response.content.strip() # .content gets text from response object, then strip removes whitespace around response.
     
-    def generate_record_answer(self, query = str, context = str) -> str:
+    def generate_record_answer(self, query: str, context: str) -> str:
         """
         Generates llm answer about compensation or employee data based on query and context.
         """
         prompt = f"""Answer the question directly using the employee record below. Interpret field names naturally (e.g., "base_salary"
         can answer questions about income, pay, salary.)
+
+        Employee_record = {context}
 
         If the question cannot be answered from the interpreted context, respond with "I am unable to answer your inquiry with the information I possess.
         Please contact a member of our HR team, or email hr@snowykim-demo.com with your inquiry."
