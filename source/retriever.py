@@ -213,8 +213,21 @@ class Retriever:
         context = str(target_record)
         return self.generate_answer(query, context)
 
-    def generate_answer():
-        #TODO
+    def generate_answer(self, query = str, context = str):
+        """
+        Generates llm answer about policy, employee data, or compensation based on query and context.
+        """
+        prompt = f"""Answer this question based on ONLY the given context. 
+        Be helpful, professional, and concise.
+        If the question cannot be answered with the given context, respond with "I am unable to answer your inquiry with the information I possess. 
+        Please contact a member of our HR team, or email hr@snowykim-demo.com with your inquiry."
+
+        Do NOT direct the user towards a decision that cannot be explicitly answered with the given context. 
+        Question: {query}
+        Answer:"""
+        response = self.answer_llm.invoke(prompt)
+        return response.content.strip() # .content gets text from response object, then strip removes whitespace around response.
+
     def answer_question():
         #TODO
     def get_current_user():
