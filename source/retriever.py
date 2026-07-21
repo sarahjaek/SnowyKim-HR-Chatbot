@@ -213,7 +213,7 @@ class Retriever:
         context = str(target_record)
         return self.generate_answer(query, context)
 
-    def generate_answer(self, query = str, context = str):
+    def generate_answer(self, query = str, context = str) -> str:
         """
         Generates llm answer about policy, employee data, or compensation based on query and context.
         """
@@ -228,6 +228,26 @@ class Retriever:
         response = self.answer_llm.invoke(prompt)
         return response.content.strip() # .content gets text from response object, then strip removes whitespace around response.
 
-    def answer_question():
-        #TODO
-    def get_current_user():
+    def answer_question(self, query: str, current_user: dict) -> str:
+        """
+        Answers question, routing query into one of three categories, calling relevant answer function, and generating answer.
+        """
+        category = self.route_query(query)
+        if category == "policy":
+            return self.answer_policy(query, current_user)
+        elif category == "employee_data":
+            return self.answer_employee(query, current_user)
+        elif category == "compensation":
+            return self.answer_compensation(query, current_user)
+        else:
+            return """Cannot categorize query. I can only answer questions about policy or employee information. Please contact hr@snowykim-demo.com or
+                    a member of our HR team with you inquiry."""
+    def get_current_user(self, current_email: str) -> dict:
+        """
+        Looks up current user's email and build employee dictionary based on email.
+        """
+        record = self.employee_store.get_record_by_field(field = "email", specific_value = current_email)
+        if not record:
+            raise LookupError(f"Unable to authenticate user by email {current_email}")
+        else:
+            return record
