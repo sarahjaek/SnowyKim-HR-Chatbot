@@ -73,7 +73,7 @@ cal_access = {
          "hr_staff": "all",
          "hr_admin": "all",
          "it_admin": "none",
-         "executive": "none"},
+         "executive": "all"},
     "recruitment-policy":
         {"employee": "none",
          "manager": "none",
@@ -111,7 +111,7 @@ class Retriever:
 
             Categories:
             - policy: general company policy, benefits, procedures, onboarding, workplace conduct, past hr cases, hr investigations
-            - employee_info: asking about an employee's general info like name, title, department, email, location, position, role.
+            - employee_info: asking about an employee's general info like name, title, department, email, location, position, role, or just "tell me about __"
             - compensation: asking about salary, pay, bonus, equity, or compensation details
 
             Question: {query}
@@ -228,7 +228,6 @@ class Retriever:
             return "You do not have access to this information."
         target_record = self.compensation_store.get_record(query_target)
         context = "\n".join(f"{k}: {v}" for k, v in target_record.items())
-        print(context)
         return self.generate_record_answer(query, context)
 
     def generate_policy_answer(self, query: str, context: str) -> str:
@@ -236,8 +235,8 @@ class Retriever:
         Generates llm answer about policy based on query and context.
         """
         prompt = f"""Answer this question based on ONLY the given context. 
-        If the question is related to the contextual information, answer based on the information.
-        Be helpful, professional, and kind. Answer in full sentences.
+        If the question is related to the contextual information, answer based on the information but elaborate---try to extend responses.
+        Be helpful, professional, and kind. Format starting on a new line.
         If the question cannot be answered with the given context, respond with "I am unable to answer your inquiry with the information I possess. 
         Please contact a member of our HR team, or email hr@snowykim-demo.com with your inquiry."
 
