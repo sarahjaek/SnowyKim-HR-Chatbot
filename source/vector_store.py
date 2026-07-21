@@ -79,7 +79,7 @@ class RecordStore:
         If EMP-1001 does not exist as a key (does not match key_field, or is simply not in the database), errors.
         '''
         if key not in self.records:
-            raise KeyError(f"{key} not found in records.")
+            return None
         else:
             return self.records.get(key)
 

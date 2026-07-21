@@ -122,7 +122,9 @@ class Retriever:
         #Case 3: Employee asks different way
         prompt = f"""
             Extract the full name of the person being asked about in this question. Respond with ONLY the name, nothing else. 
-            If no person is named, respond with "NONE". If only a person's first or last name is named, respond exactly with "NEED_FULL_NAME".
+            If no person is named, respond with "NONE". 
+            If only a person's first or last name is named, respond exactly with "NEED_FULL_NAME".
+            If MORE THAN ONE person is named, respond with "MULTIPLE".
 
             Question = {query}
             Name:"""
@@ -131,6 +133,8 @@ class Retriever:
             return None
         if name_result == "NEED_FULL_NAME":
             return "NEED_FULL_NAME"
+        if name_result == "MULTIPLE":
+            return "MULTIPLE"
         name_result_split = name_result.strip().split(" ", 1)
         if len(name_result_split) < 2:
             return None
@@ -159,18 +163,58 @@ class Retriever:
             return None
         if access == "all":
             return True
-        if access == "none":
-            return False
         if access == "own_only":
             if target_id == current_user["employee_id"]:
                 return True
             else:
                 return False
+        return False
 
-
+    def answer_policy(self, query: str, current_user: dict) -> str:
+        """
+        Answers policy questions---creates retriever, fetches documents, filters documents by access, then returns response based on context.
+        """
+        retriever = self.policy_store.get_retriever(k = self.k * 3) # overfetch in case documents access control fails
+        documents = retriever.invoke(query)
+        valid_docs = []
         
-    def answer_policy:
+        for doc in documents:
+            doc_name = doc.metadata.get("doc_type", "")
+            if self.is_allowed(doc_name, current_user, None):
+                valid_docs.append(doc)
+        if not valid_docs:
+            return "I do not have information you are authorized to access to answer this question."
+        top_valid = valid_docs[:self.k]
+        context = "\n\n".join(doc.page_content for doc in top_valid)
+        return self.generate_answer(query, context)
+
     
-    def answer_employee:
+    def answer_employee(self, query: str, current_user: dict) -> str:
+        """
+        Answers employee information questions by accessing target employee, e.g. "What is John Smith's email?"
+        """
+        query_target = self.target_employee(query, current_user) # returns employee id of relevant target
+        target_record = self.employee_store.get_record(query_target)
+        if not target_record:
+            return "Employee information not found."
+        context = str(target_record)
+        return self.generate_answer(query, context)
     
-    def answer_compensation:
+    def answer_compensation(self, query: str, current_user: dict) -> str:
+        """
+        Answers compensation information questions by accessing target employee, e.g. "What is John Smith's salary?"
+        Checks for access rules.
+        """
+        query_target = self.target_employee(query, current_user) # returns employee id of relevant target
+        access = self.is_allowed(doc_type = "compsensation-records", current_user = current_user, target_id = query_target)
+        if not access:
+            return "You do not have access to this information."
+        target_record = self.employee_store.get_record(query_target)
+        context = str(target_record)
+        return self.generate_answer(query, context)
+
+    def generate_answer():
+        #TODO
+    def answer_question():
+        #TODO
+    def get_current_user():
