@@ -7,6 +7,9 @@ from langchain_openai import ChatOpenAI
 
 import re
 
+from dotenv import load_dotenv
+load_dotenv()
+
 cal_access = {
     "compensation-records": 
         {"employee": "own_only",
@@ -93,7 +96,7 @@ class Retriever:
         prompt = f"""Classify this HR question into exactly ONE category. Respond with ONLY the category name (out of the three categories listed), nothing else.
 
             Categories:
-            - policy: general company policy, benefits, procedures, onboarding, workplace conduct
+            - policy: general company policy, benefits, procedures, onboarding, workplace conduct, past hr cases, hr investigations
             - employee_info: asking about an employee's general info like name, title, department, email, location, position, role.
             - compensation: asking about salary, pay, bonus, equity, or compensation details
 
@@ -206,11 +209,12 @@ class Retriever:
         Checks for access rules.
         """
         query_target = self.target_employee(query, current_user) # returns employee id of relevant target
-        access = self.is_allowed(doc_type = "compsensation-records", current_user = current_user, target_id = query_target)
+        access = self.is_allowed(doc_type = "compensation-records", current_user = current_user, target_id = query_target)
         if not access:
             return "You do not have access to this information."
-        target_record = self.employee_store.get_record(query_target)
+        target_record = self.compensation_store.get_record(query_target)
         context = str(target_record)
+        print(context)
         return self.generate_answer(query, context)
 
     def generate_answer(self, query = str, context = str) -> str:
@@ -218,7 +222,7 @@ class Retriever:
         Generates llm answer about policy, employee data, or compensation based on query and context.
         """
         prompt = f"""Answer this question based on ONLY the given context. 
-        Be helpful, professional, and concise.
+        Be helpful, professional, and kind.
         If the question cannot be answered with the given context, respond with "I am unable to answer your inquiry with the information I possess. 
         Please contact a member of our HR team, or email hr@snowykim-demo.com with your inquiry."
 

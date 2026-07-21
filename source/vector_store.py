@@ -90,7 +90,7 @@ class RecordStore:
         '''
         for record in self.records:
             record_dict = self.records[record]
-            if str(record_dict["field", ""]).lower() == str(specific_value).lower(): #e.g., if record_dict["name"] == "John Smith"
+            if str(record_dict.get(field, "")).lower() == str(specific_value).lower(): #e.g., if record_dict["name"] == "John Smith"
                 return record_dict
         return None #if not found, return None
     
