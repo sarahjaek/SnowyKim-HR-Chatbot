@@ -189,7 +189,7 @@ class Retriever:
             return "I do not have information you are authorized to access to answer this question."
         top_valid = valid_docs[:self.k]
         context = "\n\n".join(doc.page_content for doc in top_valid)
-        return self.generate_answer(query, context)
+        return self.generate_policy_answer(query, context)
 
     
     def answer_employee(self, query: str, current_user: dict) -> str:
@@ -201,7 +201,7 @@ class Retriever:
         if not target_record:
             return "Employee information not found."
         context = str(target_record)
-        return self.generate_answer(query, context)
+        return self.generate_record_answer(query, context)
     
     def answer_compensation(self, query: str, current_user: dict) -> str:
         """
@@ -213,16 +213,17 @@ class Retriever:
         if not access:
             return "You do not have access to this information."
         target_record = self.compensation_store.get_record(query_target)
-        context = str(target_record)
+        context = "\n".join(f"{k}: {v}" for k, v in target_record.items())
         print(context)
-        return self.generate_answer(query, context)
+        return self.generate_record_answer(query, context)
 
-    def generate_answer(self, query = str, context = str) -> str:
+    def generate_policy_answer(self, query = str, context = str) -> str:
         """
-        Generates llm answer about policy, employee data, or compensation based on query and context.
+        Generates llm answer about policy based on query and context.
         """
         prompt = f"""Answer this question based on ONLY the given context. 
-        Be helpful, professional, and kind.
+        If the question is related to the contextual information, answer based on the information.
+        Be helpful, professional, and kind. Answer in full sentences.
         If the question cannot be answered with the given context, respond with "I am unable to answer your inquiry with the information I possess. 
         Please contact a member of our HR team, or email hr@snowykim-demo.com with your inquiry."
 
@@ -231,6 +232,21 @@ class Retriever:
         Answer:"""
         response = self.answer_llm.invoke(prompt)
         return response.content.strip() # .content gets text from response object, then strip removes whitespace around response.
+    
+    def generate_record_answer(self, query = str, context = str) -> str:
+        """
+        Generates llm answer about compensation or employee data based on query and context.
+        """
+        prompt = f"""Answer the question directly using the employee record below. Interpret field names naturally (e.g., "base_salary"
+        can answer questions about income, pay, salary.)
+
+        If the question cannot be answered from the interpreted context, respond with "I am unable to answer your inquiry with the information I possess.
+        Please contact a member of our HR team, or email hr@snowykim-demo.com with your inquiry."
+        Be helpful, professional, and kind. Answer in full sentences.
+        Question: {query}
+        Answer:""" # more lenient prompt, as context contains direct information.
+        response = self.answer_llm.invoke(prompt)
+        return response.content.strip()
 
     def answer_question(self, query: str, current_user: dict) -> str:
         """
