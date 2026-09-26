@@ -9,7 +9,8 @@ current_user = r.get_current_user(sample_email)
 queries = [
     "What is Grace Liu's location?",
     "What was a past HR violation related to assault?",
-    "Summarize the process for onboarding a new employee"
+    "Summarize the process for onboarding a new employee",
+    "How much is Marcus Johnson earning?"
 ]
 
 for query in queries: # formatting cleanly
