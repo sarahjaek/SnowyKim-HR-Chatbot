@@ -236,11 +236,11 @@ class Retriever:
         """
         prompt = f"""Answer this question based on ONLY the given context. 
         If the question is related to the contextual information, answer based on the information but elaborate---try to extend responses.
-        Be helpful, professional, and kind. Format starting on a new line.
+        Be helpful, professional, and kind. 
         If the question cannot be answered with the given context, respond with "I am unable to answer your inquiry with the information I possess. 
         Please contact a member of our HR team, or email hr@snowykim-demo.com with your inquiry."
 
-        Do NOT direct the user towards a decision that cannot be explicitly answered with the given context. 
+        Do NOT direct the user towards a decision that cannot be explicitly answered with the given context. Answer in full sentences.
         Context = {context}
         Question: {query}
         Answer:"""
@@ -251,16 +251,25 @@ class Retriever:
         """
         Generates llm answer about compensation or employee data based on query and context.
         """
-        prompt = f"""Answer the question directly using the employee record below. Interpret field names naturally (e.g., "base_salary"
-        can answer questions about income, pay, salary.)
+        prompt = f"""
+        Answer the question directly using the employee record below.
 
-        Employee_record = {context}
+        Interpret field names naturally. For example, "base_salary" can answer
+        questions about income, pay, or salary.
 
-        If the question cannot be answered from the interpreted context, respond with "I am unable to answer your inquiry with the information I possess.
+        Employee record:
+        {context}
+
+        If the question cannot be answered from the provided context, respond exactly:
+
+        "I am unable to answer your inquiry with the information I possess.
         Please contact a member of our HR team, or email hr@snowykim-demo.com with your inquiry."
-        Be helpful, professional, and kind. Answer in full sentences.
+
+        Be helpful, professional, and concise.
+
         Question: {query}
-        Answer:""" # more lenient prompt, as context contains direct information.
+        Answer:
+        """ 
         response = self.answer_llm.invoke(prompt)
         return response.content.strip()
 
