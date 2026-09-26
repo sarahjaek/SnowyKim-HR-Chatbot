@@ -37,7 +37,9 @@ LLM Response
 - Failure logging
 - Response quality benchmarking
 - Improved metadata filtering
-- Tech Stack
+- UI construction
+
+## Tech Stack:
 - Python
 - LangChain 
 - Chroma
