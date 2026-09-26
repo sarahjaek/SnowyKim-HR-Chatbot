@@ -7,7 +7,7 @@ r = Retriever()
 # Test routing
 print(r.route_query("How much am I earning currently?"))
 print(r.route_query("What type of insurance do we get?"))
-print(r.route_query("What is Maya Patel's email?"))
+print(r.route_query("What is Grace Liu's location?"))
 
 # Test current user from email
 print(r.get_current_user(sample_email))

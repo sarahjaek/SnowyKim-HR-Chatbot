@@ -280,13 +280,12 @@ class Retriever:
         category = self.route_query(query)
         if category == "policy":
             return self.answer_policy(query, current_user)
-        elif category == "employee_data":
+        elif category == "employee_info":
             return self.answer_employee(query, current_user)
         elif category == "compensation":
             return self.answer_compensation(query, current_user)
         else:
-            return """Cannot categorize query. I can only answer questions about policy or employee information. Please contact hr@snowykim-demo.com or
-                    a member of our HR team with you inquiry."""
+            return """Cannot categorize query. I can only answer questions about policy or employee information. Please contact hr@snowykim-demo.com or a member of our HR team with you inquiry."""
     def get_current_user(self, current_email: str) -> dict:
         """
         Looks up current user's email and build employee dictionary based on email.
